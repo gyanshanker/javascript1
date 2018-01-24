@@ -30,7 +30,36 @@ var string = "LaLaLaLa";
 var newString = new String("LaLaLaLa")
 
 console.log(string);
-console.log(newString.toUperCase());
+console.log(newString.toUperCase);
 
+var myArray = ["Hellow world", 22, true, null];
+console.log(myArray.length);
 
+var myObject = {
+    myString: "Hello World",
+    myNumber: 42
+}
+
+let helloMessage = alert("Hay, this is my laptop");
+let confirmMessage = confirm("Is yoru name Jesus?");
+
+console.log(confirmMessage);
+
+let promptMessage = prompt("tell me teh password....", "password");
+console.log(promptMessage);
+
+/*
+Asks for the user's first name
+Asks for the user's last name
+Logs the user's first name to the console
+Alerts the user's last name
+*/
+
+var firstName = prompt("Your first Name...","First Name")
+var lastName = prompt("Your last name...", "Last Name");
+console.log(firstName);
+alert(lastName);
+
+let birthDay = prompt("What is yoru birthdate ?", "Please respond as 01/01/2011");
+confirm(new Date(birthDay));
 

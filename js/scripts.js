@@ -48,13 +48,6 @@ console.log(confirmMessage);
 let promptMessage = prompt("tell me teh password....", "password");
 console.log(promptMessage);
 
-/*
-Asks for the user's first name
-Asks for the user's last name
-Logs the user's first name to the console
-Alerts the user's last name
-*/
-
 var firstName = prompt("Your first Name...","First Name")
 var lastName = prompt("Your last name...", "Last Name");
 console.log(firstName);
@@ -62,4 +55,7 @@ alert(lastName);
 
 let birthDay = prompt("What is yoru birthdate ?", "Please respond as 01/01/2011");
 confirm(new Date(birthDay));
+
+//This is gh=pages branch
+
 

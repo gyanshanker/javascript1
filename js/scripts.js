@@ -56,6 +56,12 @@ alert(lastName);
 let birthDay = prompt("What is yoru birthdate ?", "Please respond as 01/01/2011");
 confirm(new Date(birthDay));
 
+var first1Number = prompt("enter a number", 10);
+var second2Number = prompt("enter 2nd number", 10);
+alert("Using parseInt - " + (parseInt(first1Number, 10) + parseInt(second2Number, 10)));
+alert("Using Number - " + (Number(first1Number) + Number(second2Number)));
+alert("Using divide by 1 - " + ((first1Number/1) + (second2Number/1)));
+
 //This is gh=pages branch
 
 

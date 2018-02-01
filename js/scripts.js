@@ -137,7 +137,7 @@ for (let i = 0; i < maxTasks; i++) {
     let j = i+1;
     let task = prompt(`Enter task number ${j} you need to complete - `, "Clean clothes" );
     let duration = prompt(`Enter days it will take to complete ${task} task - `);
-    taskList.push([task,duration,"not done"]);
+    taskList.push([task,Number(duration),"not done"]);
 }
 console.log("all tasks initialy -", taskList);
 

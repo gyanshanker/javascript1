@@ -125,11 +125,11 @@
 
 var taskList = [];
 //todoList[][0] - task, string
-//todoList[][1] - days needed to complete task, number
-//todoList[][2] - not done/done, string
+//todoList[][1] - days needed to complete task, number, must be > 0
+//todoList[][2] - "not done"/"done", string
 const maxTasks = 3;
 var i = 0; //conter
-var longTaskIndex = 0; //longest duration task
+var longTaskIndex = -1; //longest duration task
 
 //Collect work item and days it will take to complete, initialize to "not done"
 
@@ -137,34 +137,45 @@ for (let i = 0; i < maxTasks; i++) {
     let j = i+1;
     let task = prompt(`Enter task number ${j} you need to complete - `, "Clean clothes" );
     let duration = prompt(`Enter days it will take to complete ${task} task - `);
-    taskList.push([task,Number(duration),"not done"]);
+    taskList.push([task,(Number(duration) == NaN ? -1 : Number(duration)),"not done"]);
 }
 console.log("all tasks initialy -", taskList);
 
 //Find the longest duration work item
 i = 0;
 while (i < maxTasks) {
-    if (taskList[longTaskIndex][1] < taskList[i][1]) {
-      longTaskIndex = i;
+    if (taskList[i][1] > 0) { //valid duration
+        if (longTaskIndex >= 0) { 
+            if (taskList[longTaskIndex][1] < taskList[i][1]) {
+                longTaskIndex = i;
+            }
+        } else {
+            longTaskIndex = i;
+        }
     }
     i++;
 }
-alert(`Longest task is ${taskList[longTaskIndex][0]} and task duration is ${taskList[longTaskIndex][1]} days`);
+if (longTaskIndex < 0) {
+    alert(`Invalid durations`);
+} else {
+    alert(`Longest task is ${taskList[longTaskIndex][0]} and task duration is ${taskList[longTaskIndex][1]} days`);
 
-//Mark "done" to all tasks except the longest duration task using do whole.
-i = 0;
-do {
-    if (i != longTaskIndex) {
-        taskList[i][2] = "done";
-    }
-    i++;
-} while (i < maxTasks);
+    //Mark "done" to all tasks except the longest duration task using do whole.
+    i = 0;
+    do {
+        if ((i != longTaskIndex) && (taskList[i][1] > 0)) {
+                taskList[i][2] = "done";
+        }
+        i++;
+    } while (i < maxTasks);
 
-//Alert all the tasks that are marked done in the todo array.
-for (i = 0; i < maxTasks; i++) {
-    if (taskList[i][2] == "done") {
-        alert(`Task in "done" state - ${taskList[i][0]}`);
+    //Alert all the tasks that are marked done in the todo array.
+    for (i = 0; i < maxTasks; i++) {
+        if (taskList[i][2] == "done") {
+            alert(`Task in "done" state - ${taskList[i][0]}`);
+        }
     }
+
 }
 
 console.log(taskList);

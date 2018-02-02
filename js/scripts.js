@@ -137,14 +137,24 @@ for (let i = 0; i < maxTasks; i++) {
     let j = i+1;
     let task = prompt(`Enter task number ${j} you need to complete - `, "Clean clothes" );
     let duration = prompt(`Enter days it will take to complete ${task} task - `);
-    taskList.push([task,(Number(duration) == NaN ? -1 : Number(duration)),"not done"]);
+    //var due =prmpt(`what day you wany done day/mnth/yr');
+    //due = new Date(due);
+    taskList.push([task,(((Number(duration) == NaN) || (Number(duration) <=0)) ? null : Number(duration)),"not done"]);
 }
 console.log("all tasks initialy -", taskList);
+
+//var now = new Date().getTime();
+//let oneDay = 24 * 60 * 1000;
+//var diffDay = Math.round((todosWithDays[j][1].getTime() - now))/oneDay);
+//sortedWithIndicies.push([diffDays, todosWithDays[j]]);
+//sortedWithINdicies.sort();
+//console.log(sortedWithIndicies[sortedWithIndicies.length -1][1], `will take teh longest`);
+
 
 //Find the longest duration work item
 i = 0;
 while (i < maxTasks) {
-    if (taskList[i][1] > 0) { //valid duration
+    if (taskList[i][1] != null) { //valid duration
         if (longTaskIndex >= 0) { 
             if (taskList[longTaskIndex][1] < taskList[i][1]) {
                 longTaskIndex = i;
@@ -155,7 +165,7 @@ while (i < maxTasks) {
     }
     i++;
 }
-if (longTaskIndex < 0) {
+if (longTaskIndex == null) {
     alert(`Invalid durations`);
 } else {
     alert(`Longest task is ${taskList[longTaskIndex][0]} and task duration is ${taskList[longTaskIndex][1]} days`);
@@ -163,7 +173,7 @@ if (longTaskIndex < 0) {
     //Mark "done" to all tasks except the longest duration task using do whole.
     i = 0;
     do {
-        if ((i != longTaskIndex) && (taskList[i][1] > 0)) {
+        if ((i != longTaskIndex) && (taskList[i][1] != null)) {
                 taskList[i][2] = "done";
         }
         i++;

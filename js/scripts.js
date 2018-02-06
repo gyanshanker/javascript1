@@ -220,7 +220,7 @@ do {
 
 alert(`Square of ${number} is ${squared}.`);
 
-//Maniputae string*********************************
+//Manipulate string*********************************
 
 // In a second function, capitalize the first letter of a string and add a period (.) to the end of the string if it doesn't already end with a period
 // Create a string that will flip the position of the first and second half of a string. For example, the string “abcdef” would be returned as “defabc”. Hint: use substring.
@@ -245,17 +245,13 @@ function changeString(cString) {
 function flipString(cString) {
     let nString; //new string to be returned
     let halfLength;
-    console.log("length of string -", cString.length)
     if (cString.length == 1) {
         return cString; //no need to flip, string one letter long
     } else {
         halfLength = Math.trunc(cString.length / 2);
         let firstHalfString = cString.substr(0,halfLength);
-        console.log("first half of string -", firstHalfString);
         let secondHalfString = cString.substr(halfLength, (cString.length - halfLength));
-        console.log("second half of string - ", secondHalfString); 
         nString = secondHalfString + firstHalfString;
-        console.log("New String - ", nString)
         return nString;
     }
 }

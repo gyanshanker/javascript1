@@ -201,7 +201,6 @@ var squared = -1;
 //returns -1 if x is not a number 
 function numberSquare(x) {
     let parsed = parseInt(x);
-    console.log("parsed number is", parsed);
     if (isNaN(parsed)) {
         alert("Not a number, please reenter a valid number");
         return [NaN, -1];
@@ -266,7 +265,7 @@ while (true) { //make first letter to uppercase and add period if it is not ther
 }
 //flip position of first and second half of string
 while (true) {
-    inputString = prompt("Enter the string to be FLIPPED half of thestring - ", "aaaabbbbbb" );
+    inputString = prompt("Enter the string to be FLIPPED halfway- ", "aaaabbbbbb" );
     if (inputString.length > 0) {  //check for empty string
         newString2 = flipString(inputString);
         alert(`New String is ${newString2}, Input string was ${inputString}`);

@@ -295,3 +295,4 @@ function convertTemp(temp, scale) {
         x = (temp -32) * 5 / 9;
         return Math.round(x);
     }
+}

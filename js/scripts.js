@@ -190,85 +190,108 @@
 
 // console.log(taskList);
 
-//Day 5 take home
-//SQUARE a NUMBER ********************************
-var number = 0;
-var squared = -1;
+// //Day 5 take home
+// //SQUARE a NUMBER ********************************
+// var number = 0;
+// var squared = -1;
 
-//numberSquare definition
-//x - number to be squared, if string  then teh first number is sued for squaring.
-//returns square of the number if x is a number
-//returns -1 if x is not a number 
-function numberSquare(x) {
-    let parsed = parseInt(x);
-    if (isNaN(parsed)) {
-        alert("Not a number, please reenter a valid number");
-        return [NaN, -1];
+// //numberSquare definition
+// //x - number to be squared, if string  then teh first number is sued for squaring.
+// //returns square of the number if x is a number
+// //returns -1 if x is not a number 
+// function numberSquare(x) {
+//     let parsed = parseInt(x);
+//     if (isNaN(parsed)) {
+//         alert("Not a number, please reenter a valid number");
+//         return [NaN, -1];
+//     } else {
+//         return [parsed, parsed * parsed] ;
+//     }
+// }
+
+// //prompt for number, return square if a valid number is entered; otherwise loop till a valid number given
+// do { 
+//     number = prompt("Enter the number to be SQUARED ?", 5);
+//     var x = numberSquare(number);
+//     number = x[0];
+//     squared = x[1]
+// } while (squared < 0);
+
+// alert(`Square of ${number} is ${squared}.`);
+
+// //Manipulate string*********************************
+
+// // In a second function, capitalize the first letter of a string and add a period (.) to the end of the string if it doesn't already end with a period
+// // Create a string that will flip the position of the first and second half of a string. For example, the string “abcdef” would be returned as “defabc”. Hint: use substring.
+// // BONUS: If you are bored by all that, write a function that checks if a given string is a palindrome
+
+// //global variables
+// var inputString;
+// var newString1;
+// var newString2;
+
+// //changeString function changes given string - makes first letter upplercase and adds "." if it's nto there.
+// function changeString(cString) { 
+//     let nString; // new string to be returned
+//     let firstLetter = cString.charAt(); //get first character in teh string
+//     let firstUpLetter = firstLetter.toUpperCase(); //convert letter to upper case
+//     (cString.endsWith(".")) ? nString = firstUpLetter + cString.substr(1) : nString = 
+//         firstUpLetter + cString.substr(1) + ".";
+//     return nString;
+// }
+
+// //flipString function flips first and second half of a string
+// function flipString(cString) {
+//     let nString; //new string to be returned
+//     let halfLength;
+//     if (cString.length == 1) {
+//         return cString; //no need to flip, string one letter long
+//     } else {
+//         halfLength = Math.trunc(cString.length / 2);
+//         let firstHalfString = cString.substr(0,halfLength);
+//         let secondHalfString = cString.substr(halfLength, (cString.length - halfLength));
+//         nString = secondHalfString + firstHalfString;
+//         return nString;
+//     }
+// }
+
+// while (true) { //make first letter to uppercase and add period if it is not there
+//     inputString = prompt("Enter the string to MODIFY - ", "hello I am John");
+//     if (inputString.length > 0) {  //check for empty string
+//         newString1 = changeString(inputString);
+//         alert(`New String is ${newString1}, Input string was ${inputString}`);
+//         break;
+//     }
+// }
+// //flip position of first and second half of string
+// while (true) {
+//     inputString = prompt("Enter the string to be FLIPPED halflength- ", "aaaabbbbbb" );
+//     if (inputString.length > 0) {  //check for empty string
+//         newString2 = flipString(inputString);
+//         alert(`New String is ${newString2}, Input string was ${inputString}`);
+//         break;
+//     }
+// }
+
+//Day 6 Take Home
+// Employ a function that accepts two arguments: temperature and scale (either celcius or fahrenheit).
+// Display the temperature in an h3 with minimal styling.
+// When the user clicks on the h3, run the function to convert the temperature.
+// Display the converted temperature in the h3.
+
+var h3 = document.querySelector("#temp");
+var p = document.querySelector("#scale");
+h3.addEventListener('click', function(e){
+    h3.textContent = convertTemp(parseInt(h3.textContent), "F");
+    p.textContent = "in Celcius";
+})
+
+function convertTemp(temp, scale) {
+    var x;
+    if (scale == "C") {
+        x = temp * 9 / 5 + 32;
+        return Math.round(x);
     } else {
-        return [parsed, parsed * parsed] ;
+        x = (temp -32) * 5 / 9;
+        return Math.round(x);
     }
-}
-
-//prompt for number, return square if a valid number is entered; otherwise loop till a valid number given
-do { 
-    number = prompt("Enter the number to be SQUARED ?", 5);
-    var x = numberSquare(number);
-    number = x[0];
-    squared = x[1]
-} while (squared < 0);
-
-alert(`Square of ${number} is ${squared}.`);
-
-//Manipulate string*********************************
-
-// In a second function, capitalize the first letter of a string and add a period (.) to the end of the string if it doesn't already end with a period
-// Create a string that will flip the position of the first and second half of a string. For example, the string “abcdef” would be returned as “defabc”. Hint: use substring.
-// BONUS: If you are bored by all that, write a function that checks if a given string is a palindrome
-
-//global variables
-var inputString;
-var newString1;
-var newString2;
-
-//changeString function changes given string - makes first letter upplercase and adds "." if it's nto there.
-function changeString(cString) { 
-    let nString; // new string to be returned
-    let firstLetter = cString.charAt(); //get first character in teh string
-    let firstUpLetter = firstLetter.toUpperCase(); //convert letter to upper case
-    (cString.endsWith(".")) ? nString = firstUpLetter + cString.substr(1) : nString = 
-        firstUpLetter + cString.substr(1) + ".";
-    return nString;
-}
-
-//flipString function flips first and second half of a string
-function flipString(cString) {
-    let nString; //new string to be returned
-    let halfLength;
-    if (cString.length == 1) {
-        return cString; //no need to flip, string one letter long
-    } else {
-        halfLength = Math.trunc(cString.length / 2);
-        let firstHalfString = cString.substr(0,halfLength);
-        let secondHalfString = cString.substr(halfLength, (cString.length - halfLength));
-        nString = secondHalfString + firstHalfString;
-        return nString;
-    }
-}
-
-while (true) { //make first letter to uppercase and add period if it is not there
-    inputString = prompt("Enter the string to MODIFY - ", "hello I am John");
-    if (inputString.length > 0) {  //check for empty string
-        newString1 = changeString(inputString);
-        alert(`New String is ${newString1}, Input string was ${inputString}`);
-        break;
-    }
-}
-//flip position of first and second half of string
-while (true) {
-    inputString = prompt("Enter the string to be FLIPPED halflength- ", "aaaabbbbbb" );
-    if (inputString.length > 0) {  //check for empty string
-        newString2 = flipString(inputString);
-        alert(`New String is ${newString2}, Input string was ${inputString}`);
-        break;
-    }
-}

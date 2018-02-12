@@ -279,20 +279,56 @@
 // When the user clicks on the h3, run the function to convert the temperature.
 // Display the converted temperature in the h3.
 
-var h3 = document.querySelector("#temp");
-var p = document.querySelector("#scale");
-h3.addEventListener('click', function(e){
-    h3.textContent = convertTemp(parseInt(h3.textContent), "F");
-    p.textContent = "in Celcius";
-})
+// var h3 = document.querySelector("#temp");
+// var p = document.querySelector("#scale");
+// h3.addEventListener('click', function(e){
+//     h3.textContent = convertTemp(parseInt(h3.textContent), "F");
+//     p.textContent = "in Celcius";
+// })
 
-function convertTemp(temp, scale) {
-    var x;
-    if (scale == "C") {
-        x = temp * 9 / 5 + 32;
-        return Math.round(x);
-    } else {
-        x = (temp -32) * 5 / 9;
-        return Math.round(x);
-    }
+// function convertTemp(temp, scale) {
+//     var x;
+//     if (scale == "C") {
+//         x = temp * 9 / 5 + 32;
+//         return Math.round(x);
+//     } else {
+//         x = (temp -32) * 5 / 9;
+//         return Math.round(x);
+//     }
+// }
+
+//day 7 project for recreating the web page using JS
+body = document.querySelector("body");
+document.body.onload = addContent();
+
+function addContent() {
+    var header = document.createElement("header");
+    header.innerHTML = "Home" + "<ul style='float:right'>" +
+    "<li style='display:inline; padding:10px'>Contact</li>" +
+    "<li style='display:inline; padding:10px'>About</li>"
+    "</ul>";
+    header.style.margin = "30px";
+    body.appendChild(header);
+
+    var div = document.createElement("div");
+    var h1 = document.createElement("h1");
+    var p = document.createElement("p");
+    div.style.marginLeft = "100px";
+    div.style.marginRight = "100px";
+    div.style.height = "500px";
+    h1.textContent = "Hello World!";
+    h1.style.textAlign = "center";
+    p.textContent = "Fatback kevin strip steak, shankle kielbasa boudin sausage turkey bacon ham. Pastrami spare ribs chicken, ham hock porchetta ball tip picanha t-bone. Flank chuck short ribs strip steak. Shank prosciutto ground round strip steak meatball. Ground round chicken cow bresaola bacon sirloin. Pastrami alcatra prosciutto ball tip andouille. Drumstick ground round salami, cow tri-tip short loin ball tip capicola burgdoggen pork belly."
+    div.appendChild(h1);
+    div.appendChild(p);
+    body.appendChild(div);
+
+    var div1 = document.createElement("div");
+    div1.positon = "fixed";
+    div1.style.bottom = "0px";
+    div1.style.textAlign = "center";
+    var p1 = document.createElement("p");
+    p1.textContent = "Friend us on FB";
+    div1.appendChild(p1);
+    body.appendChild(div1);
 }

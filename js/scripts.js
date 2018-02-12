@@ -298,8 +298,8 @@
 // }
 
 //day 7 project for recreating the web page using JS
-body = document.querySelector("body");
-document.body.onload = addContent();
+
+var body = document.querySelector("body");
 
 function addContent() {
     var header = document.createElement("header");
@@ -331,4 +331,41 @@ function addContent() {
     p1.textContent = "Friend us on FB";
     div1.appendChild(p1);
     body.appendChild(div1);
+} 
+
+// Day 7 Take Home 
+// Write a program that does the following:
+
+// 1. When the user clicks a button, prompt them for the a title.
+// 2. Put that title into an h1 that is centered on the page.
+// 3. Ask the user to write a few sentences about what they did today.
+// 4. Populate a p tag with the sentences, align the p tag text with justify.
+// 5. Finally, ask the user for his or her favorite color, and set the background of the p tag to that color
+// 6. Remember, check for edge cases with color.
+
+function addNewContent() {
+    
+    var title = prompt("Please provide a title of this page?", "Hello World!");
+    var whatIDidToday = prompt("Please write a few sentences on what you did today", "After waking up, I felt hungry and cooked breakfast. Then I went to work. Had a great day at work. Returned home. Was very Hungry.");
+    var color = prompt("What is yoru favorite color?", "red, blue, purple, pink, green, orange");
+    color = color.toLowerCase();
+
+    var div = document.createElement("div");
+    var h1 = document.createElement("h1");
+    var p = document.createElement("p");
+    div.style.marginLeft = "100px";
+    div.style.marginRight = "100px";
+    body.appendChild(div);
+    div.appendChild(h1);
+    div.appendChild(p);
+    
+    h1.style.textAlign = "center";
+    h1.textContent = title;
+
+    p.style.justify = "center";
+    p.style.backgroundColor = color;
+    p.textContent = whatIDidToday;
 }
+
+var resp = prompt("Which project want to see?", "inclass or takehome");
+(resp == "inclass") ? addContent() : addNewContent();
